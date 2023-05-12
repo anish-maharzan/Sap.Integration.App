@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sap.Integration.App
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {

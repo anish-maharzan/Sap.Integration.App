@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Sap.Integration.App.Lib;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,9 +11,9 @@ namespace Sap.Integration.App.DAL
         private readonly string _connectionString;
 
 
-        public SqlDataAccessLayer()
+        public SqlDataAccessLayer(string connectionString)
         {
-            _connectionString = AppConfig.SqlConnectionString;
+            _connectionString = connectionString;
         }
 
         public DataTable ExecuteQuery(string query, List<SqlParameter> parameters = null, bool isStoredProcedure = false)

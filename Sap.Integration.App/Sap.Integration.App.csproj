@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAL\Sales\SalesOrderService.cs" />
     <Compile Include="DAL\HanaDataAccessLayer.cs" />
     <Compile Include="DAL\SqlDataAccessLayer.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Lib\AppConfig.cs" />
+    <Compile Include="Models\DocHeader.cs" />
+    <Compile Include="Models\DocLine.cs" />
+    <Compile Include="Models\Sales\SalesOrder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SAP\SapCompany.cs" />
@@ -67,8 +71,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BAL\" />
-    <Folder Include="Models\" />
+    <Folder Include="BAL\Purchases\" />
+    <Folder Include="DTO\" />
+    <Folder Include="Models\Purchases\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLL\Sap.Data.Hana.v4.5.dll" />

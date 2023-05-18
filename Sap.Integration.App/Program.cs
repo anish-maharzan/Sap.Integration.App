@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sap.Integration.App.BAL.Sales;
 
 namespace Sap.Integration.App
 {
@@ -10,6 +6,7 @@ namespace Sap.Integration.App
     {
         static void Main(string[] args)
         {
+            SalesOrderService.ImportToSap();
         }
     }
 }

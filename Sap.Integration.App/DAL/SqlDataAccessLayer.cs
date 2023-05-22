@@ -117,14 +117,14 @@ namespace Sap.Integration.App.DAL
             }
         }
 
-        public void SqlBulkInsert(DataTable dt)
+        public void BulkInsert(string tblName, DataTable dt)
         {
             using (SqlConnection dbConn = new SqlConnection(_connectionString))
             {
                 dbConn.Open();
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(dbConn))
                 {
-                    bulkCopy.DestinationTableName = "dbo.OITW";
+                    bulkCopy.DestinationTableName = tblName;
                     try
                     {
                         foreach (DataColumn clmn in dt.Columns)

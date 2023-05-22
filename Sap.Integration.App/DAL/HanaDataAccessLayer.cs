@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Sap.Data.Hana;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -81,6 +82,32 @@ namespace Sap.Integration.App.DAL
                     }
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void BulkInsert(string tblName, DataTable dt)
+        {
+            using (HanaConnection dbConn = new HanaConnection(_connectionString))
+            {
+                dbConn.Open();
+                using (HanaBulkCopy bulkCopy = new HanaBulkCopy(dbConn))
+                {
+                    bulkCopy.DestinationTableName = tblName;
+                    try
+                    {
+                        foreach (DataColumn clmn in dt.Columns)
+                        {
+                            bulkCopy.ColumnMappings.Add(clmn.ColumnName, clmn.ColumnName);
+                        }
+
+                        bulkCopy.WriteToServer(dt);
+                    }
+                    catch (Exception ex)
+                    {
+                        //myLogger.Error("Fail to upload session data. ", ex);
+                        throw ex;
+                    }
                 }
             }
         }
